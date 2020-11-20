@@ -1,0 +1,39 @@
+ALGORITHM sumdistinctv2
+VAR
+     htab : HASH_TABLE<INTEGER,INTEGER>;
+     i,j,sum:INTEGER:=0;
+     tab1,tab2 : ARRAY_OF integer[50];
+BEGIN
+    FOR i FROM 0 TO tab1.length STEP step  DO
+        element := tab1[i] ; 
+        IF (htab.lookup(element)) THEN
+            count := htab.get(element);
+            htab.insert(element,count+1)
+        ELSE
+            htab.insert(element,1)
+        END_IF
+    END_FOR
+
+
+    FOR j FROM 0 TO tab2.length STEP step  DO
+        element := tab2[j] ; 
+        IF (htab.lookup(element)) THEN
+            count := htab.get(element);
+            htab.insert(element,count+1)
+        ELSE
+            htab.insert(element,1)
+        END_IF
+    END_FOR
+
+    sum:=0;
+
+    FOR k FROM 0 TO htab.length STEP step  DO
+        IF (htab.get(k)===1) THEN
+            sum:= sum + key  
+        END_IF
+    END_FOR
+
+
+
+
+END

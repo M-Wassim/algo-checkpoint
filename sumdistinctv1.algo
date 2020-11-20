@@ -1,0 +1,33 @@
+ALGORITHM sumdistinctv1
+VAR
+    tab1,tab2 : ARRAY_OF INTEGER[50];
+    i,j,sum : INTEGER ;
+BEGIN
+ sum := 0 ; 
+ 
+  
+  FOR i FROM 0 TO tab1.length - 1 STEP step  DO
+      j:= 0 ;
+       WHILE (tab1[i]<>tab2[j]) DO
+         j := j+1 ; 
+       
+         IF (j === tab2.length - 1) THEN
+           sum := sum + tab1[i]; 
+         END_IF
+        END_WHILE
+  END_FOR
+
+  FOR j FROM 0 TO tab2.length - 1 STEP step  DO
+      i:= 0;
+       WHILE (tab2[j]<>tab1[i]) DO
+         i:= i+1 ; 
+       
+         IF (i === tab1.length - 1) THEN
+           sum := sum + tab2[j]; 
+         END_IF
+        END_WHILE
+  END_FOR
+
+  write(sum) ; 
+    
+END

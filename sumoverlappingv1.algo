@@ -1,0 +1,15 @@
+ALGORITHM sumoverlapping
+VAR
+    tab1,tab2 : ARRAY_OF INTEGER[50];
+    i,j,sum:INTEGER := 0;
+BEGIN
+
+    FOR i FROM 0 TO tab1.length - 1  STEP step  DO
+        FOR j FROM 0 TO tab2.length STEP step  DO
+            IF (tab1[i] === tab2[j]) THEN
+                sum := sum + tab1[i];
+            END_IF
+        END_FOR
+    END_FOR
+    write (sum) ; 
+END
