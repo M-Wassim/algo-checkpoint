@@ -1,0 +1,30 @@
+PROCEDURE insort(var tab :ARRAY_OF INTEGER);
+VAR
+    i,j,aux:INTEGER:=0;
+BEGIN
+    FOR i FROM 1 TO tab.length STEP step  DO
+        aux := tab[i];
+        j:=i-1;
+        WHILE (j>=0 and tab[j]>aux) DO
+            tab[j+1] :=tab [j];
+            j:=j-1;
+        END_WHILE
+        tab[j+1] := aux ;
+
+    END_FOR
+END 
+
+ALGORITHM insertion_sort
+VAR
+    tab:ARRAY_OF INTEGER;
+    n,i,k : INTEGER; 
+BEGIN
+    read(n) ; 
+    FOR k FROM 0 TO n-1 STEP step  DO
+        read (tab[k]);
+    END_FOR
+    insort(tab); 
+    FOR i FROM 0 TO n-1 STEP step  DO
+        write (tab[i]);
+    END_FOR
+END
